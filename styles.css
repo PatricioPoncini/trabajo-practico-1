@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(206, 206, 206);
+    background-color: rgb(230, 230, 230);
 }
 
 .row {
@@ -29,7 +29,7 @@ body {
     color: rgb(0, 0, 154);
 }
 
-.col-22 {
+.col-2 {
     display: flex;
     align-items: center;
     border-radius: 5px;
@@ -37,6 +37,16 @@ body {
     background-color: white;
     padding: 20px;
     width: 1000px;
+}
+
+.col-10 {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    margin-top: 50px;
+    background-color: white;
+    padding: 20px;
+    width: 500px;
 }
 
 .img-perfil {
@@ -64,16 +74,104 @@ body {
 
 
 .col-6 {
-    display: inline-flex;
-    align-items: center;
+    border-radius: 5px;
     margin-top: 50px;
     background-color: white;
+    height: 800px;
+    width: 600px;
+}
+
+.p-tiempo-public {
+    color: gray;
+    text-align: left;
+    padding: 10px 10px;
 }
 
 .col-3 {
-    margin-left: 200px;
-    display: inline-flex;
-    align-items: center;
+    border-radius: 5px;
+    margin-left: 50px;
     margin-top: 50px;
+    width: 350px;
+    height: 300px;
     background-color: white;
+}
+
+.h3-sobre-mi {
+    text-align: left;
+    padding: 10px;
+    color: rgb(89, 89, 89);
+}
+
+.img-publicacion {
+    border-radius: 10px;
+    height: 350px;
+    width: 550px;
+}
+
+.btn-me-gusta {
+    float: left;
+    margin-left: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    padding: 9px;
+    background-color: rgb(207, 207, 207);
+    color: blue;
+    font-weight: bold;
+}
+
+.p-likes {
+    padding: 17px;
+    color: black;
+    text-align: right;
+}
+
+.div-btn-likes {
+    display: block;
+}
+
+.h4-comentarios {
+    font-size: 20px;
+    text-align: left;
+    padding: 10px;
+    color: rgb(59, 59, 59);
+}
+
+.p-comentarios {
+    padding: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.input-comentarios {
+    float: left;
+    margin-left: 10px;
+    width: 400px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(195, 195, 195);
+}
+
+.btn-seguir {
+    border: none;
+    border-radius: 5px;
+    background-color: blue;
+    color: whitesmoke;
+    font-weight: bold;
+    padding: 6px;
+}
+
+.btn-comentarios {
+    border: none;
+    border-radius: 5px;
+    background-color: blue;
+    color: whitesmoke;
+    font-weight: bold;
+    padding: 6px;
+    float: right;
+}
+
+input::placeholder {
+    padding: 10px;
 }
