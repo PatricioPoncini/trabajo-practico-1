@@ -3,8 +3,8 @@ body {
 }
 
 .row {
-    border: 2px red;
-    border-style: solid;
+    /* border: 2px red; */
+    width: 1000px;
 }
 
 .img-logo {
@@ -12,7 +12,8 @@ body {
     float: left;
 }
 
-.col1 {
+.col-12 {
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -28,8 +29,14 @@ body {
     color: rgb(0, 0, 154);
 }
 
-.col2 {
+.col-22 {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    margin-top: 50px;
     background-color: white;
+    padding: 20px;
+    width: 1000px;
 }
 
 .img-perfil {
@@ -41,6 +48,32 @@ body {
     padding: 2px;
 }
 
-.col3 {
+.img-datos {
+    float: left;
+    margin-left: 40px;
+}
+
+.h2-nombre {
+    text-align: left;
+}
+
+.p-datos {
+    text-align: left;
+    font-size: 15px;
+}
+
+
+.col-6 {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 50px;
+    background-color: white;
+}
+
+.col-3 {
+    margin-left: 200px;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 50px;
     background-color: white;
 }
