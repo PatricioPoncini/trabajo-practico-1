@@ -1,0 +1,46 @@
+body {
+    background-color: rgb(206, 206, 206);
+}
+
+.row {
+    border: 2px red;
+    border-style: solid;
+}
+
+.img-logo {
+    height: 45px;
+    float: left;
+}
+
+.col1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(91, 91, 255);
+}
+
+.input-login {
+    float: right;
+    background-color: rgb(189, 189, 253);
+    border: none;
+    border-radius: 5px;
+    justify-content: center;
+    color: rgb(0, 0, 154);
+}
+
+.col2 {
+    background-color: white;
+}
+
+.img-perfil {
+    float: left;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid rgb(91, 91, 255);
+    padding: 2px;
+}
+
+.col3 {
+    background-color: white;
+}
