@@ -19,7 +19,9 @@
         <div class="row">
             <div class="col-12">
                 <img src="https://i.imgur.com/Qx8uR89.png" alt="Globo" class="img-logo">
-                <input type="text" class="input-login" placeholder="Ingresa tu usuario...">
+                <input type="text" class="input-login" placeholder="Ingresa tu usuario..." id="login-input">
+                <h5 class="h5-welcome-msg" id="username-display"></h5>
+                <button id="login-btn">Sign In</button>
             </div>
         </div>
         <div class="row">
@@ -38,7 +40,7 @@
                     </div>
                 </div>
                 <div class="col-5">
-                    <button class="btn-seguir">Seguir</button>
+                    <button class="btn-seguir" id="follow-btn">Seguir</button>
                 </div>
             </div>
         </div>
@@ -47,11 +49,11 @@
                 <div class="div-btn-likes">
                     <p class="p-tiempo-public">Publicado hace 1 semana</p>
                     <img src="https://i.imgur.com/bq9db41.jpeg" alt="Imagen publicación" class="img-publicacion">
-                    <button class="btn-me-gusta">Me gusta</button>
-                    <p class="p-likes"><strong>200</strong> Likes</p>
+                    <button class="btn-me-gusta" id="like-btn">Me gusta</button>
+                    <p class="p-likes"><strong id="likes">200</strong> Likes</p>
                 </div>
                 <p class="h4-comentarios">Comentarios</p>
-                <div class="comentarios">
+                <div class="comentarios" id="comments">
                     <p class="p-comentarios"><strong>Juan Perez </strong> ¡Wow, esta foto de Tokyo es impresionante!
                     </p>
                     <p class="p-comentarios"><strong>Kathleen J Rennie </strong> ¡Esta foto de Tokyo es simplemente
@@ -59,13 +61,13 @@
                     <p class="p-comentarios"><strong>Diana Bell </strong> ¡Espero que algún día puedan ver Tokyo en
                         persona!<button class="btn-eliminar-comentario">Eliminar</button></p>
                 </div>
-                <input type="text" placeholder="Deja tu comentario..." class="input-comentarios">
-                <button class="btn-comentarios">Comentar</button>
+                <input type="text" placeholder="Deja tu comentario..." class="input-comentarios" id="comment-input">
+                <button class="btn-comentarios" id="comment-btn">Comentar</button>
             </div>
             <div class="col-3">
                 <h3 class="h3-sobre-mi">Sobre mí</h3>
-                <p class="p-sobre-mi"> Hola a todos Say Jane, y actualmente vivo en la vibrante y emocionante ciudad de
-                    Tokio, Japon Me
+                <p class="p-sobre-mi"> Hola a todos soy Jane, y actualmente vivo en la vibrante y emocionante ciudad de
+                    Tokyo, Japon Me
                     encanta capturar la esencia de la vida urbana a través de mi lente, explorando el contraste entre la
                     arquitectura moderna y las tradiciones centenaras que conviven en esta metrópolis unica. Desde
                     rascacielos deslumbrantes y calles bulliciosas hasta templos serenos y jardines tranquilos,
@@ -73,6 +75,7 @@
             </div>
         </div>
     </div>
+    <script src="index.js"></script>
 </body>
 
 </html>

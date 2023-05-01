@@ -16,6 +16,12 @@ body {
     float: left;
 }
 
+.h5-welcome-msg {
+    display: none;
+    color: white;
+    margin-top: 6px;
+}
+
 .col-12 {
     border-radius: 5px;
     display: flex;
@@ -81,7 +87,7 @@ body {
     border-radius: 5px;
     margin-top: 50px;
     background-color: white;
-    height: 800px;
+    height: auto;
     width: 600px;
 }
 
@@ -142,7 +148,7 @@ body {
     color: rgb(59, 59, 59);
 }
 
-.p-comentarios {
+.comentarios p {
     padding: 10px;
     font-size: 14px;
     text-align: left;
@@ -156,6 +162,7 @@ body {
     border: none;
     border-radius: 5px;
     background-color: whitesmoke;
+    margin-bottom: 10px;
 }
 
 .btn-seguir {
@@ -172,12 +179,13 @@ body {
 .btn-comentarios {
     border: none;
     border-radius: 5px;
-    background-color: blue;
+    background-color: gray;
     color: whitesmoke;
     font-weight: bold;
     padding: 6px;
     float: right;
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .comentarios {
