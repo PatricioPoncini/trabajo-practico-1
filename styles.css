@@ -36,7 +36,11 @@ body {
     border: none;
     border-radius: 5px;
     justify-content: center;
-    color: rgb(0, 0, 154);
+    color: rgb(0, 0, 0);
+}
+
+.input-login::placeholder {
+    color: blue;
 }
 
 .col-2 {
@@ -170,7 +174,7 @@ body {
     border: none;
     border-radius: 5px;
     background-color: blue;
-    color: whitesmoke;
+    color: rgb(255, 255, 255);
     font-weight: bold;
     padding: 6px;
     float: right;
@@ -179,7 +183,7 @@ body {
 .btn-comentarios {
     border: none;
     border-radius: 5px;
-    background-color: gray;
+    background-color: blue;
     color: whitesmoke;
     font-weight: bold;
     padding: 6px;
