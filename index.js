@@ -5,6 +5,33 @@ let usernameDisplay = document.getElementById("username-display");
 let addCommentBtn = document.getElementById("comment-btn");
 let commentInput = document.getElementById("comment-input");
 let comments = document.getElementById("comments");
+let loginBtn = document.getElementById("login-btn");
+
+// INPUT FORM
+loginBtn.addEventListener("click", function () {
+    let username = usernameInput.value;
+    if (username === "") {
+        return;
+    } else {
+        usernameDisplay.textContent = "¡Hola " + username + "!";
+        usernameInput.style.display = "none";
+        usernameDisplay.style.display = "block";
+        loginBtn.style.color = "white"
+        loginBtn.style.backgroundColor = "#530091"
+    }
+    if (loginBtn.textContent === "Sign In") {
+        addCommentBtn.style.backgroundColor = "blue";
+        addCommentBtn.style.color = "white";
+        loginBtn.textContent = "Sign Out";
+    } else {
+        loginBtn.textContent = "Sign In";
+        usernameInput.value = "";
+        usernameInput.style.display = "block";
+        usernameDisplay.style.display = "none";
+        loginBtn.style.color = "blue"
+        loginBtn.style.backgroundColor = "white";
+    }
+});
 
 // FOLLOW AND UNFOLLOW BUTTON
 button.addEventListener("click", function () {
@@ -25,7 +52,7 @@ button.addEventListener("click", function () {
     }
 });
 
-// LIKE BUTTON (hacer boton para sacar me gusta)
+// LIKE BUTTON
 let likes = 200;
 let liked = false;
 likeBtn.addEventListener("click", function () {
