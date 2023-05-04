@@ -7,15 +7,16 @@ body {
 
 .row {
     /* border: 2px red; */
-    width: 1000px;
+    width: 100%;
 }
 
 /* NAVBAR */
 .sign-in-btn {
-    background-color: white;
+    background-color: whitesmoke;
     color: blue;
     border: none;
     border-radius: 3px;
+    margin-left: 20px;
 }
 
 .h5-welcome-msg {
@@ -34,7 +35,7 @@ body {
 
 .input-login {
     float: right;
-    background-color: rgb(189, 189, 253);
+    background-color: rgb(228, 228, 255);
     border: none;
     border-radius: 5px;
     justify-content: center;
@@ -47,6 +48,7 @@ body {
 
 /* PERSONAL INFO */
 .img-logo {
+    margin-left: 10px;
     margin-bottom: 3px;
     height: 45px;
     float: left;
