@@ -20,7 +20,7 @@ body {
 }
 
 .h5-welcome-msg {
-    display: none;
+
     color: white;
     margin-top: 6px;
 }
@@ -47,6 +47,19 @@ body {
 }
 
 /* PERSONAL INFO */
+
+.follow-container {
+    display: flex;
+    align-items: center;
+}
+
+.follow-error-message {
+    margin-top: 180px;
+    margin-left: 10px;
+    color: red;
+    font-size: 14px;
+}
+
 .img-logo {
     margin-left: 10px;
     margin-bottom: 3px;
@@ -98,7 +111,7 @@ body {
     float: right;
 }
 
-/* COMMENTS AND ABOUT ME */
+/* POST */
 
 .col-6 {
     border-radius: 5px;
@@ -108,7 +121,7 @@ body {
     width: 600px;
 }
 
-.p-tiempo-public {
+.p-post-time {
     color: gray;
     text-align: left;
     padding: 10px 10px;
@@ -123,27 +136,29 @@ body {
     background-color: white;
 }
 
-.h3-sobre-mi {
-    text-align: left;
-    margin-top: 5px;
-    padding: 10px;
-    color: rgb(89, 89, 89);
-}
-
-.p-sobre-mi {
-    padding: 10px;
-    color: rgb(49, 49, 49);
-    text-align: left;
-    font-size: 14px;
-}
-
 .img-publicacion {
     border-radius: 10px;
     height: 350px;
     width: 550px;
 }
 
-.btn-me-gusta {
+/* LIKES */
+
+.like-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.like-error-message {
+    margin-top: 25px;
+    text-align: center;
+    color: red;
+}
+
+.btn-like {
+
     float: left;
     margin-left: 12px;
     margin-top: 10px;
@@ -156,7 +171,7 @@ body {
 }
 
 .p-likes {
-    padding: 17px;
+    margin-top: 25px;
     color: black;
     text-align: right;
 }
@@ -164,6 +179,8 @@ body {
 .div-btn-likes {
     display: block;
 }
+
+/* COMMENTS */
 
 .h4-comentarios {
     font-size: 20px;
@@ -189,7 +206,7 @@ body {
     margin-bottom: 10px;
 }
 
-.btn-comentarios {
+.btn-comment {
     border: none;
     border-radius: 5px;
     background-color: blue;
@@ -206,6 +223,37 @@ body {
     background-color: whitesmoke;
 }
 
+.comment-error-container,
+.login-error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.comment-error-message,
+.login-error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 input::placeholder {
     padding: 10px;
+}
+
+/* ABOUT ME */
+
+.h3-sobre-mi {
+    text-align: left;
+    margin-top: 5px;
+    padding: 10px;
+    color: rgb(89, 89, 89);
+}
+
+.p-sobre-mi {
+    padding: 10px;
+    color: rgb(49, 49, 49);
+    text-align: left;
+    font-size: 14px;
 }

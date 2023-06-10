@@ -11,7 +11,11 @@ const app = Vue.createApp({
                 { id: 2, username: "Kathleen J Rennie", text: "¡Esta foto de Tokyo es simplemente espectacular! Me trae tantos recuerdos." },
                 { id: 3, username: "Diana Bell", text: "¡Espero que algún día puedan ver Tokyo en persona!" }
             ],
-            newComment: ""
+            newComment: "",
+            showError: false,
+            showLikeError: false,
+            showLoginError: false,
+            showCommentError: false
         };
     },
     computed: {
@@ -22,7 +26,7 @@ const app = Vue.createApp({
             return this.following ? "Dejar de seguir" : "Seguir";
         },
         likeButtonText() {
-            return this.liked ? "Ya no me gusta" : "Me gusta";
+            return this.liked ? "No me gusta" : "Me Gusta";
         }
     },
     methods: {
@@ -36,9 +40,13 @@ const app = Vue.createApp({
         login() {
             if (this.username !== "") {
                 this.loggedIn = true;
-                this.username = usernameInput.value; // se podria usar para mostrar el nombre del User
+                this.username = usernameInput.value;
+                this.showLoginError = false;
+            } else {
+                this.showLoginError = true;
             }
         },
+
         logout() {
             this.username = "";
             this.loggedIn = false;
@@ -47,6 +55,8 @@ const app = Vue.createApp({
         toggleFollow() {
             if (this.loggedIn) {
                 this.following = !this.following;
+            } else {
+                this.showError = true;
             }
         },
         toggleLike() {
@@ -57,20 +67,38 @@ const app = Vue.createApp({
                 } else {
                     this.likes--;
                 }
+                this.showLikeError = false;
+            } else {
+                this.showLikeError = true;
             }
+
         },
+
         addComment() {
-            if (this.loggedIn && this.newComment.trim() !== "") {
-                const comment = {
-                    id: this.comments.length + 1,
-                    username: this.username,
-                    text: this.newComment,
-                    isOwner: true
-                };
-                this.comments.push(comment);
-                this.newComment = "";
+            if (!this.loggedIn) {
+                this.showLoginError = true;
+                this.showCommentError = false;
+                return;
             }
+
+            if (this.newComment.trim() === "") {
+                this.showLoginError = false;
+                this.showCommentError = true;
+                return;
+            }
+
+            const comment = {
+                id: this.comments.length + 1,
+                username: this.username,
+                text: this.newComment,
+                isOwner: true,
+            };
+            this.comments.push(comment);
+            this.newComment = "";
+            this.showLoginError = false;
+            this.showCommentError = false;
         },
+
         deleteComment(comment) {
             if (this.isCommentOwner(comment)) {
                 const index = this.comments.findIndex(c => c.id === comment.id);
@@ -95,6 +123,6 @@ app.component("about-me", {
         de Tokyo, Japon. Me encanta capturar la esencia de la vida urbana a través de mi lente, explorando el contraste entre la arquitectura moderna y las tradiciones centenaras que conviven en esta metrópolis unica. Desde rascacielos deslumbrantes y calles bulliciosas hasta templos serenos y jardines tranquilos, encuentro inspiracion en cada rincón de esta increible ciudad
     </p>
     `
-})
+});
 
 app.mount("#app");

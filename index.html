@@ -16,8 +16,10 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
         </script>`
 
-    <!-- Navbar -->
+
     <div id="app">
+
+        <!-- Navbar -->
         <div class="row">
             <nav class="navbar navbar-expand" style="background-color: rgb(91, 91, 255);">
                 <div class="container-fluid">
@@ -54,20 +56,31 @@
                         </div>
                     </div>
                     <div class="col-5">
-                        <button class="btn-seguir" v-if="!loggedIn">Seguir</button>
-                        <button class="btn-seguir" v-if="loggedIn" @click="toggleFollow">{{ followButtonText }}</button>
+                        <button class="btn-seguir" v-if="!loggedIn && !following" @click="toggleFollow">Seguir</button>
+                        <button class="btn-seguir" v-if="loggedIn && !following" @click="toggleFollow">{{
+                            followButtonText }}</button>
+                        <button class="btn-seguir" v-if="loggedIn && following" @click="toggleFollow">{{
+                            followButtonText }}</button>
+                        <p class="follow-error-message" v-if="showError && !loggedIn">Inicie sesión para seguir</p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Comments and About Me -->
+        <!-- Comments and About Me -->
+        <div class="container text-center">
             <div class="row">
                 <div class="col-6">
                     <div class="div-btn-likes">
-                        <p class="p-tiempo-public">Publicado hace 1 semana</p>
+                        <p class="p-post-time">Publicado hace 1 semana</p>
                         <img src="https://i.imgur.com/bq9db41.jpeg" alt="Imagen publicación" class="img-publicacion">
-                        <button class="btn-me-gusta" @click="toggleLike">{{ likeButtonText }}</button>
-                        <p class="p-likes"><strong id="likes">{{ likes }}</strong> Likes</p>
+                        <div class="like-container">
+                            <button class="btn-like" @click="toggleLike">{{ likeButtonText }}</button>
+                            <p class="like-error-message" v-if="showLikeError && !loggedIn">Inicie sesión para poder dar
+                                Me Gusta</p>
+                            <p class="p-likes"><strong id="likes">{{ likes }}</strong> Likes</p>
+                        </div>
+
                     </div>
                     <p class="h4-comentarios">Comentarios</p>
                     <div class="comentarios" id="comments">
@@ -76,20 +89,36 @@
                             <button v-if="isCommentOwner(comment)" @click="deleteComment(comment)">Eliminar</button>
                         </p>
                     </div>
-                    <input type="text" placeholder="Deja tu comentario..." class="input-comentarios"
-                        v-model="newComment">
-                    <button class="btn-comentarios" @click="addComment">Comentar</button>
+                    <div class="comment-container">
+                        <input type="text" placeholder="Deja tu comentario..." class="input-comentarios"
+                            v-model="newComment">
+                    </div>
+                    <div class="comment-error-container">
+                        <button class="btn-comment" @click="addComment">Comentar</button>
+                        <p class="comment-error-message"
+                            v-if="showCommentError && loggedIn && newComment.trim() === ''">
+                            Ingrese un comentario primero
+                        </p>
+                    </div>
+
+                    <div class="login-error-container">
+                        <p class="login-error-message" v-if="showLoginError && !loggedIn">
+                            Inicie sesión para comentar
+                        </p>
+                    </div>
+
                 </div>
                 <div class="col-3">
                     <about-me></about-me>
                 </div>
             </div>
         </div>
+
+
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="app.js"></script>
     <script src="index.js"></script>
-    </div>
 
 </body>
 
