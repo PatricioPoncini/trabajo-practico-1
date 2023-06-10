@@ -14,73 +14,91 @@
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-        </script>
-    <nav class="navbar navbar-expand" style="background-color: rgb(91, 91, 255);">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="https://i.imgur.com/Qx8uR89.png" alt="Globo" class="img-logo">
-            </a>
-            <div class="d-flex align-items-center">
-                <input type="text" class="input-login" placeholder="Ingresa tu usuario..." id="login-input">
-                <h5 class="h5-welcome-msg" id="username-display"></h5>
-                <button id="login-btn" class="sign-in-btn">Sign In</button>
-            </div>
-        </div>
-    </nav>
-    <div class="container text-center">
+        </script>`
+
+    <!-- Navbar -->
+    <div id="app">
         <div class="row">
-            <div class="col-2">
-                <div class="div-img">
-                    <img src="https://i.imgur.com/99qgQJy.jpeg" alt="Foto perfil" class="img-perfil">
-                </div>
-                <div class="col-5">
-                    <div class="img-datos">
-                        <h2 class="h2-nombre">Jane Doe</h2>
-                        <p class="p-datos"><strong>Email: </strong>jane_doe@gmail.com</p>
-                        <p class="p-datos"><strong>Fecha de nacimiento: </strong>01/05/1996</p>
-                        <p class="p-datos"><strong>Teléfono: </strong>918-936-9585</p>
-                        <p class="p-datos"><strong>Ciudad: </strong>Tokyo, Japón</p>
-                        <p class="p-datos">Trabajando en <strong>Lawn N</strong></p>
+            <nav class="navbar navbar-expand" style="background-color: rgb(91, 91, 255);">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="https://i.imgur.com/Qx8uR89.png" alt="Globo" class="img-logo">
+                    </a>
+                    <div class="d-flex align-items-center">
+                        <input type="text" class="input-login" placeholder="Ingresa tu usuario..." v-model="username"
+                            v-if="!loggedIn">
+                        <!-- Mostrar el nombre del usuario -->
+                        <h5 class="h5-welcome-msg" v-model="username" v-if="loggedIn === true">¡Hola {{ username }}!
+                        </h5>
+                        <button class="sign-in-btn" @click="toggleLogin">{{ loginButtonText }}</button>
                     </div>
                 </div>
-                <div class="col-5">
-                    <button class="btn-seguir" id="follow-btn">Seguir</button>
-                </div>
-                <div class="col-5"></div>
-            </div>
+            </nav>
         </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="div-btn-likes">
-                    <p class="p-tiempo-public">Publicado hace 1 semana</p>
-                    <img src="https://i.imgur.com/bq9db41.jpeg" alt="Imagen publicación" class="img-publicacion">
-                    <button class="btn-me-gusta" id="like-btn">Me gusta</button>
-                    <p class="p-likes"><strong id="likes">200</strong> Likes</p>
+
+        <!-- Profile -->
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-2">
+                    <div class="div-img">
+                        <img src="https://i.imgur.com/99qgQJy.jpeg" alt="Foto perfil" class="img-perfil">
+                    </div>
+                    <div class="col-5">
+                        <div class="img-datos">
+                            <h2 class="h2-nombre">Jane Doe</h2>
+                            <p class="p-datos"><strong>Email: </strong>jane_doe@gmail.com</p>
+                            <p class="p-datos"><strong>Fecha de nacimiento: </strong>01/05/1996</p>
+                            <p class="p-datos"><strong>Teléfono: </strong>918-936-9585</p>
+                            <p class="p-datos"><strong>Ciudad: </strong>Tokyo, Japón</p>
+                            <p class="p-datos">Trabajando en <strong>Lawn N</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <button class="btn-seguir" v-if="!loggedIn">Seguir</button>
+                        <button class="btn-seguir" v-if="loggedIn" @click="toggleFollow">{{ followButtonText }}</button>
+                    </div>
                 </div>
-                <p class="h4-comentarios">Comentarios</p>
-                <div class="comentarios" id="comments">
-                    <p class="p-comentarios"><strong>Juan Perez </strong> ¡Wow, esta foto de Tokyo es impresionante!🌆🌟
-                    </p>
-                    <p class="p-comentarios"><strong>Kathleen J Rennie </strong> ¡Esta foto de Tokyo es simplemente
-                        espectacular! Me trae tantos recuerdos.</p>
-                    <p class="p-comentarios"><strong>Diana Bell </strong> ¡Espero que algún día puedan ver Tokyo en
-                        persona!
-                </div>
-                <input type="text" placeholder="Deja tu comentario..." class="input-comentarios" id="comment-input">
-                <button class="btn-comentarios" id="comment-btn">Comentar</button>
             </div>
-            <div class="col-3">
-                <h3 class="h3-sobre-mi">Sobre mí</h3>
-                <p class="p-sobre-mi"> Hola a todos soy Jane, y actualmente vivo en la vibrante y emocionante ciudad de
-                    Tokyo, Japon Me
-                    encanta capturar la esencia de la vida urbana a través de mi lente, explorando el contraste entre la
-                    arquitectura moderna y las tradiciones centenaras que conviven en esta metrópolis unica. Desde
-                    rascacielos deslumbrantes y calles bulliciosas hasta templos serenos y jardines tranquilos,
-                    encuentro inspiracion en cada rincón de esta increible ciudad</p>
+
+            <!-- Comments and About Me -->
+            <div class="row">
+                <div class="col-6">
+                    <div class="div-btn-likes">
+                        <p class="p-tiempo-public">Publicado hace 1 semana</p>
+                        <img src="https://i.imgur.com/bq9db41.jpeg" alt="Imagen publicación" class="img-publicacion">
+                        <button class="btn-me-gusta" @click="toggleLike">{{ likeButtonText }}</button>
+                        <p class="p-likes"><strong id="likes">{{ likes }}</strong> Likes</p>
+                    </div>
+                    <p class="h4-comentarios">Comentarios</p>
+                    <div class="comentarios" id="comments">
+                        <p class="p-comentarios" v-for="comment in comments">
+                            <strong>{{ comment.username }} </strong> {{ comment.text }}
+                            <button v-if="isCommentOwner(comment)" @click="deleteComment(comment)">Eliminar</button>
+                        </p>
+                    </div>
+                    <input type="text" placeholder="Deja tu comentario..." class="input-comentarios"
+                        v-model="newComment">
+                    <button class="btn-comentarios" @click="addComment">Comentar</button>
+                </div>
+                <div class="col-3">
+                    <h3 class="h3-sobre-mi">Sobre mí</h3>
+                    <p class="p-sobre-mi"> Hola a todos soy Jane, y actualmente vivo en la vibrante y emocionante ciudad
+                        de
+                        Tokyo, Japon Me
+                        encanta capturar la esencia de la vida urbana a través de mi lente, explorando el contraste
+                        entre la
+                        arquitectura moderna y las tradiciones centenaras que conviven en esta metrópolis unica. Desde
+                        rascacielos deslumbrantes y calles bulliciosas hasta templos serenos y jardines tranquilos,
+                        encuentro inspiracion en cada rincón de esta increible ciudad</p>
+                </div>
             </div>
         </div>
     </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
     <script src="index.js"></script>
+    </div>
+
 </body>
 
 </html>
