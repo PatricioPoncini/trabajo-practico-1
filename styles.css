@@ -11,6 +11,20 @@ body {
 }
 
 /* NAVBAR */
+.login-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.username-error-message {
+    display: flex;
+    color: black;
+    margin-top: 20px;
+    margin-right: 10px;
+    
+}
+
 .sign-in-btn {
     background-color: whitesmoke;
     color: blue;

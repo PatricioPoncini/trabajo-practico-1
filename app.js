@@ -15,7 +15,8 @@ const app = Vue.createApp({
             showError: false,
             showLikeError: false,
             showLoginError: false,
-            showCommentError: false
+            showCommentError: false,
+            showUsernameError: false
         };
     },
     computed: {
@@ -42,7 +43,9 @@ const app = Vue.createApp({
                 this.loggedIn = true;
                 this.username = usernameInput.value;
                 this.showLoginError = false;
+                this.showUsernameError = false;
             } else {
+                this.showUsernameError = true;
                 this.showLoginError = true;
             }
         },

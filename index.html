@@ -26,7 +26,10 @@
                     <a class="navbar-brand" href="#">
                         <img src="https://i.imgur.com/Qx8uR89.png" alt="Globo" class="img-logo">
                     </a>
-                    <div class="d-flex align-items-center">
+                    <div class="login-container">
+                        <p class="username-error-message" v-if="showUsernameError && !loggedIn">
+                            Ingrese un usuario para poder iniciar sesión
+                        </p>
                         <input type="text" class="input-login" placeholder="Ingresa tu usuario..." v-model="username"
                             v-if="!loggedIn">
                         <!-- Mostrar el nombre del usuario -->
@@ -34,6 +37,7 @@
                         </h5>
                         <button class="sign-in-btn" @click="toggleLogin">{{ loginButtonText }}</button>
                     </div>
+
                 </div>
             </nav>
         </div>
