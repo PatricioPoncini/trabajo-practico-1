@@ -49,7 +49,6 @@ const app = Vue.createApp({
                 this.showLoginError = true;
             }
         },
-
         logout() {
             this.username = "";
             this.loggedIn = false;
@@ -74,22 +73,18 @@ const app = Vue.createApp({
             } else {
                 this.showLikeError = true;
             }
-
         },
-
         addComment() {
             if (!this.loggedIn) {
                 this.showLoginError = true;
                 this.showCommentError = false;
                 return;
             }
-
             if (this.newComment.trim() === "") {
                 this.showLoginError = false;
                 this.showCommentError = true;
                 return;
             }
-
             const comment = {
                 id: this.comments.length + 1,
                 username: this.username,
@@ -101,7 +96,6 @@ const app = Vue.createApp({
             this.showLoginError = false;
             this.showCommentError = false;
         },
-
         deleteComment(comment) {
             if (this.isCommentOwner(comment)) {
                 const index = this.comments.findIndex(c => c.id === comment.id);
@@ -116,15 +110,46 @@ const app = Vue.createApp({
     }
 });
 
+// Componente Profile
+// Nota: $root hace referencia al componente principal de Vue
+app.component("profile", {
+    template: `
+      <button class="btn-seguir" v-if="!loggedIn && !following" @click="toggleFollow">Seguir</button>
+      <button class="btn-seguir" v-if="loggedIn && !following" @click="toggleFollow">{{ followButtonText }}</button>
+      <button class="btn-seguir" v-if="loggedIn && following" @click="toggleFollow">{{ followButtonText }}</button>
+      <p class="follow-error-message" v-if="showError && !loggedIn">Inicie sesión para seguir</p>
+    `,
+    computed: {
+        loggedIn() {
+            return this.$root.loggedIn;
+        },
+        following() {
+            return this.$root.following;
+        },
+        followButtonText() {
+            return this.$root.followButtonText;
+        },
+        showError() {
+            return this.$root.showError;
+        }
+    },
+    methods: {
+        toggleFollow() {
+            this.$root.toggleFollow();
+        }
+    }
+});
+
+// Componente About Me
 app.component("about-me", {
     template: `
-    <h3 class="h3-sobre-mi">
+      <h3 class="h3-sobre-mi">
         Sobre mí
-    </h3>
-    <p class="p-sobre-mi"> 
+      </h3>
+      <p class="p-sobre-mi"> 
         Hola a todos soy Jane, y actualmente vivo en la vibrante y emocionante ciudad
         de Tokyo, Japon. Me encanta capturar la esencia de la vida urbana a través de mi lente, explorando el contraste entre la arquitectura moderna y las tradiciones centenaras que conviven en esta metrópolis unica. Desde rascacielos deslumbrantes y calles bulliciosas hasta templos serenos y jardines tranquilos, encuentro inspiracion en cada rincón de esta increible ciudad
-    </p>
+      </p>
     `
 });
 
