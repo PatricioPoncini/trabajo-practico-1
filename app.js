@@ -114,9 +114,9 @@ const app = Vue.createApp({
 // Nota: $root hace referencia al componente principal de Vue
 app.component("profile", {
     template: `
-      <button class="btn-seguir" v-if="!loggedIn && !following" @click="toggleFollow">Seguir</button>
-      <button class="btn-seguir" v-if="loggedIn && !following" @click="toggleFollow">{{ followButtonText }}</button>
-      <button class="btn-seguir" v-if="loggedIn && following" @click="toggleFollow">{{ followButtonText }}</button>
+      <button class="follow-btn" v-if="!loggedIn && !following" @click="toggleFollow">Seguir</button>
+      <button class="follow-btn" v-if="loggedIn && !following" @click="toggleFollow">{{ followButtonText }}</button>
+      <button class="follow-btn" v-if="loggedIn && following" @click="toggleFollow">{{ followButtonText }}</button>
       <p class="follow-error-message" v-if="showError && !loggedIn">Inicie sesión para seguir</p>
     `,
     computed: {
@@ -143,10 +143,10 @@ app.component("profile", {
 // Componente About Me
 app.component("about-me", {
     template: `
-      <h3 class="h3-sobre-mi">
+      <h3 class="h3-about-me">
         Sobre mí
       </h3>
-      <p class="p-sobre-mi"> 
+      <p class="p-about-me"> 
         Hola a todos soy Jane, y actualmente vivo en la vibrante y emocionante ciudad
         de Tokyo, Japon. Me encanta capturar la esencia de la vida urbana a través de mi lente, explorando el contraste entre la arquitectura moderna y las tradiciones centenaras que conviven en esta metrópolis unica. Desde rascacielos deslumbrantes y calles bulliciosas hasta templos serenos y jardines tranquilos, encuentro inspiracion en cada rincón de esta increible ciudad
       </p>

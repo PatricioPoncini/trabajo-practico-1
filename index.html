@@ -45,16 +45,16 @@
             <div class="row">
                 <div class="col-2">
                     <div class="div-img">
-                        <img src="https://i.imgur.com/99qgQJy.jpeg" alt="Foto perfil" class="img-perfil">
+                        <img src="https://i.imgur.com/99qgQJy.jpeg" alt="Foto perfil" class="profile-img">
                     </div>
                     <div class="col-5">
-                        <div class="img-datos">
-                            <h2 class="h2-nombre">Jane Doe</h2>
-                            <p class="p-datos"><strong>Email: </strong>jane_doe@gmail.com</p>
-                            <p class="p-datos"><strong>Fecha de nacimiento: </strong>01/05/1996</p>
-                            <p class="p-datos"><strong>Teléfono: </strong>918-936-9585</p>
-                            <p class="p-datos"><strong>Ciudad: </strong>Tokyo, Japón</p>
-                            <p class="p-datos">Trabajando en <strong>Lawn N</strong></p>
+                        <div class="data-img">
+                            <h2 class="h2-name">Jane Doe</h2>
+                            <p class="p-data"><strong>Email: </strong>jane_doe@gmail.com</p>
+                            <p class="p-data"><strong>Fecha de nacimiento: </strong>01/05/1996</p>
+                            <p class="p-data"><strong>Teléfono: </strong>918-936-9585</p>
+                            <p class="p-data"><strong>Ciudad: </strong>Tokyo, Japón</p>
+                            <p class="p-data">Trabajando en <strong>Lawn N</strong></p>
                         </div>
                     </div>
                     <div class="col-5">
@@ -71,7 +71,7 @@
                 <div class="col-6">
                     <div class="div-btn-likes">
                         <p class="p-post-time">Publicado hace 1 semana</p>
-                        <img src="https://i.imgur.com/bq9db41.jpeg" alt="Imagen publicación" class="img-publicacion">
+                        <img src="https://i.imgur.com/bq9db41.jpeg" alt="Imagen publicación" class="img-post">
                         <div class="like-container">
                             <button class="btn-like" @click="toggleLike">{{ likeButtonText }}</button>
                             <p class="like-error-message" v-if="showLikeError && !loggedIn">Inicie sesión para poder dar
@@ -79,15 +79,15 @@
                             <p class="p-likes"><strong id="likes">{{ likes }}</strong> Likes</p>
                         </div>
                     </div>
-                    <p class="h4-comentarios">Comentarios</p>
-                    <div class="comentarios" id="comments">
-                        <p class="p-comentarios" v-for="comment in comments">
+                    <p class="h4-comments">Comentarios</p>
+                    <div class="comments" id="comments">
+                        <p class="p-comments" v-for="comment in comments">
                             <strong>{{ comment.username }} </strong> {{ comment.text }}
                             <button v-if="isCommentOwner(comment)" @click="deleteComment(comment)">Eliminar</button>
                         </p>
                     </div>
                     <div class="comment-container">
-                        <input type="text" placeholder="Deja tu comentario..." class="input-comentarios"
+                        <input type="text" placeholder="Deja tu comentario..." class="input-comments"
                             v-model="newComment">
                     </div>
                     <div class="comment-error-container">
